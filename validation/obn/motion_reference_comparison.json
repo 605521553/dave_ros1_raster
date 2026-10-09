@@ -1,0 +1,23 @@
+{
+  "previous": {
+    "nonfinite_reference_quaternion_samples": 0,
+    "max_tangent_yaw_rate_deg_s": 13.862397151583927,
+    "waypoints": 369,
+    "max_actual_reference_yaw_rate_deg_s": 13.809061088874559,
+    "reversals_over_170_deg": 0,
+    "max_waypoint_turn_deg": 24.53186234272535,
+    "max_reference_vertical_speed_m_s": 0.020282333450595654,
+    "max_reference_heading_step_deg": 1.6529088819745652
+  },
+  "updated": {
+    "nonfinite_reference_quaternion_samples": 0,
+    "max_tangent_yaw_rate_deg_s": 28.339293256579605,
+    "waypoints": 529,
+    "max_actual_reference_yaw_rate_deg_s": 27.1788491446063,
+    "reversals_over_170_deg": 0,
+    "max_waypoint_turn_deg": 13.832905608255539,
+    "max_reference_vertical_speed_m_s": 0.08821777900211862,
+    "max_reference_heading_step_deg": 0.8026817874603576
+  },
+  "limitations": "Actual configured interpolator reference quaternion and vertical speed checks, not a Gazebo/PID flight test."
+}

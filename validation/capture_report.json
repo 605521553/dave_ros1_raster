@@ -1,0 +1,32 @@
+[
+  {
+    "session": "20260930_083618_31980a",
+    "written": 0,
+    "error": null,
+    "max_delta_ms": null
+  },
+  {
+    "session": "20260930_083715_2acc37",
+    "written": 5,
+    "error": null,
+    "max_delta_ms": 0.0
+  },
+  {
+    "session": "20260930_083855_cdf99d",
+    "written": 10,
+    "error": null,
+    "max_delta_ms": 0.0
+  },
+  {
+    "session": "20260930_084203_af5868",
+    "written": 5,
+    "error": null,
+    "max_delta_ms": 0.0
+  },
+  {
+    "session": "20260930_084555_3cb577",
+    "written": 3,
+    "error": null,
+    "max_delta_ms": 0.0
+  }
+]

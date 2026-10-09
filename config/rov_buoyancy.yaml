@@ -1,0 +1,12 @@
+# Shared by offshore, underwater_wreck and obn. Distances in metres.
+# Neutral volume is computed by UUV Simulator as link mass / fluid density.
+# Keep legacy mass, inertia and Fossen coefficients for controller compatibility.
+neutrally_buoyant: true
+# Visual/collision envelope, including gripper; not the displaced-water volume.
+box:
+  length: 0.550
+  width: 0.381
+  height: 0.336
+# Restore the original RexROV equivalent restoring lever arm for the retained
+# inertia, damping and PID. This is not the physical small-ROV buoyancy center.
+center_of_buoyancy: [0.0, 0.0, 0.30]

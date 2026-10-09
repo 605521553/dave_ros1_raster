@@ -1,0 +1,15 @@
+# Legacy R20 geometry. Dynamics intentionally remain RexROV.
+visual_mesh: package://bygd_rov/meshes/ROV/rov_lowpoly.obj
+visual_scale: [1.0, 1.0, 1.0]
+visual_xyz: [0.0, 0.0, 0.0]
+visual_rpy: [0.0, 0.0, 0.0]
+collisions:
+  - name: body_collision
+    xyz: [0.01, 0.0, -0.0435]
+    rpy: [0.0, 0.0, 0.0]
+    size: [0.44, 0.381, 0.336]
+  - name: gripper_collision
+    xyz: [0.28, 0.0, -0.185]
+    rpy: [0.0, 0.0, 0.0]
+    size: [0.12, 0.10, 0.05]
+sensor_xyz: [0.25, 0.0, 0.10]

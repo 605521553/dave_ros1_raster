@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Physics/current and sea-surface definitions adapted from UUV Simulator.
+     Copyright (c) 2016 The UUV Simulator Authors.
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy at http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License. -->
+<sdf version="1.4">
+  <world name="offshore_scene_world">
+    <!-- 场景迁移自 ROS 2 generated_scene：几何比例和位姿保持一致；插件使用 ROS 1 / Gazebo Classic 版本。 -->
+    <physics name="default_physics" default="true" type="ode">
+      <max_step_size>0.002</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>500</real_time_update_rate>
+    </physics>
+    <spherical_coordinates>
+      <latitude_deg>56.71897669633431</latitude_deg>
+      <longitude_deg>3.515625</longitude_deg>
+    </spherical_coordinates>
+    <plugin name="underwater_current_plugin" filename="libuuv_underwater_current_ros_plugin.so">
+      <!-- 保留 UUV ROS 1 海流接口 hydrodynamics/current_velocity；均值 0.2 m/s 与 ROS 2 场景一致。需要静水时将 mean 改为 0。 -->
+      <namespace>hydrodynamics</namespace>
+      <constant_current>
+        <topic>current_velocity</topic>
+        <velocity>
+          <mean>0.2</mean>
+          <min>0</min>
+          <max>5</max>
+          <mu>0.0</mu>
+          <noiseAmp>0.0</noiseAmp>
+        </velocity>
+        <horizontal_angle>
+          <mean>0</mean>
+          <min>-3.141592653589793238</min>
+          <max>3.141592653589793238</max>
+          <mu>0.0</mu>
+          <noiseAmp>0.0</noiseAmp>
+        </horizontal_angle>
+        <vertical_angle>
+          <mean>0</mean>
+          <min>-3.141592653589793238</min>
+          <max>3.141592653589793238</max>
+          <mu>0.0</mu>
+          <noiseAmp>0.0</noiseAmp>
+        </vertical_angle>
+      </constant_current>
+    </plugin>
+    <plugin name="sc_interface" filename="libuuv_sc_ros_interface_plugin.so" />
+    <scene>
+      <ambient>0.25 0.25 0.25 1</ambient>
+      <background>0.3 0.3 0.3 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <light name="sun" type="directional">
+      <pose>0 0 30 0 0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.5 0.3 -1</direction>
+    </light>
+    <!-- 海面位于世界 Z=0。只复用原 ocean 的上下两面 visual；不包含原海床、边界墙、沙地或 NED 可视模型。 -->
+    <model name="sea_surface">
+      <static>true</static>
+      <link name="surface_link">
+        <visual name="ocean_surface">
+          <pose>0 0 0 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <mesh>
+              <uri>model://uuv_gazebo_worlds/Media/models/sea_surface_1000m_x_1000m.dae</uri>
+              <scale>2 2 2</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://uuv_gazebo_worlds/Media/materials/scripts/waves.material</uri>
+              <name>UUVSimulator/SimpleWaves</name>
+            </script>
+          </material>
+        </visual>
+        <visual name="ocean_below">
+          <pose>0 0 0 3.14 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <mesh>
+              <uri>model://uuv_gazebo_worlds/Media/models/sea_surface_1000m_x_1000m.dae</uri>
+              <scale>2 2 2</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://uuv_gazebo_worlds/Media/materials/scripts/water.material</uri>
+              <name>UUVSimulator/StaticWater</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <!-- 修改点：场景位姿 pose（米/弧度）、mesh URI 和 scale。与 ROS 2 一致：Z 下移 10 米，比例 1。OBJ/MTL 原文件不修改。 -->
+    <model name="environment">
+      <static>true</static>
+      <pose>0 0 -10 0 0 0</pose>
+      <link name="environment_link">
+        <!-- 与参考项目一致，visual 和 collision 使用同一网格；约 93 万面，后续可只替换 collision 为简化网格以提高性能。 -->
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://bygd_rov/meshes/offshore_scene/offshore_scene.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://bygd_rov/meshes/offshore_scene/offshore_scene.obj</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+    <gui fullscreen="0">
+      <camera name="user_camera">
+        <pose>42 -48 32 0 0.45 2.25</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+    <!-- 本 world 只加载环境，不生成 ROV。机器人、PID、轨迹继续由原有 launch 启动；出生位置需适配新场景，不能沿用旧海床的 -20/-93 米。 -->
+  </world>
+</sdf>

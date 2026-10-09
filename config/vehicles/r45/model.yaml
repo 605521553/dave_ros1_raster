@@ -1,0 +1,13 @@
+# R45 visual/collision adapter. Dynamics intentionally remain RexROV.
+visual_mesh: package://bygd_rov/meshes/ROV_R45/rov_lowpoly.obj
+visual_scale: [1.0, 1.0, 1.0]
+visual_xyz: [0.0, 0.0, 0.0]
+visual_rpy: [0.0, 0.0, 0.0]
+# Conservative box around measured 0.681213 x 0.500101 x 0.448216 m mesh.
+collisions:
+  - name: r45_body_collision
+    xyz: [0.0, 0.0, 0.0]
+    rpy: [0.0, 0.0, 0.0]
+    size: [0.686, 0.506, 0.454]
+# Shared camera/sonar origin ahead of the R45 front; retain scene pitch.
+sensor_xyz: [0.36, 0.0, 0.10]

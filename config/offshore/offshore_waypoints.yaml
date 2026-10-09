@@ -1,0 +1,8 @@
+# 固定 yaw=0 的浅水巡检示例，world 坐标，米。
+inertial_frame_id: world
+waypoints:
+  - {point: [4, -8, -6], max_forward_speed: 0.3, heading: 0, use_fixed_heading: true}
+  - {point: [3, -7, -6], max_forward_speed: 0.3, heading: 0, use_fixed_heading: true}
+  - {point: [2, -8, -6], max_forward_speed: 0.3, heading: 0, use_fixed_heading: true}
+  - {point: [3, -9, -6], max_forward_speed: 0.3, heading: 0, use_fixed_heading: true}
+  - {point: [4, -8, -6], max_forward_speed: 0.3, heading: 0, use_fixed_heading: true}

@@ -1,0 +1,9 @@
+{
+  "launch/offshore_rov.launch": "80be3fbb56f36390edbb17d226aed206e110eb5c686cd4a072f1ba4a548e18fb",
+  "launch/offshore_world.launch": "231a38a18c52cc003d8e7f7d7890c04c7574d52387847fef50a71a04f292232c",
+  "launch/upload_bygd_rov.launch": "e114c91ca28a5cdfa03726efefd5e6d97a3bdcda6ee215ae6271d1f0e64aa2f3",
+  "worlds/offshore.world": "c267cf1cf91f50453f02a980a6ae925752c993fb748b1224bd19aba79bfd3291",
+  "urdf/bygd_rov.xacro": "43a5c34e69ad377de8185596f69e1e7d7dcff4d8c411bf8140b9167e22e0e7f5",
+  "urdf/sensors.xacro": "29a2e81fe1d081dadcf75f48dddac46bad065704781800c349b970eeb4521a39",
+  "config/sensors.yaml": "6cf7c35e948f717530a4843d8a7962a07df842f5a279a08aad398c0531d4f5ec"
+}

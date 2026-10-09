@@ -1,0 +1,6 @@
+{
+  "offshore": "PASS: Xacro, neutral flag, original CoB lever, original mass/inertia/Fossen coefficients/collisions",
+  "underwater_wreck": "PASS: Xacro, neutral flag, original CoB lever, original mass/inertia/Fossen coefficients/collisions",
+  "obn": "PASS: Xacro, neutral flag, original CoB lever, original mass/inertia/Fossen coefficients/collisions",
+  "limitations": "Configuration checks only; no dynamic ROS/Gazebo test."
+}

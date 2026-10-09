@@ -1,0 +1,30 @@
+{
+  "environment_identical_to_offshore": true,
+  "all_scales_one": true,
+  "mesh_resources_exist": true,
+  "distinct_reflectivities": true,
+  "external_package_modifications": [],
+  "category_model_pose": "0 0 -10 0 0 0",
+  "all_local_poses_zero": true,
+  "world_z_bounds": [
+    -10.732288,
+    -0.987272
+  ],
+  "model_count": 4,
+  "material_models": [
+    "wreck_stone",
+    "wreck_wood",
+    "wreck_metal",
+    "wreck_soil"
+  ],
+  "sensor_rate_hz": 5,
+  "sensor_downward_pitch_rad": 0.35,
+  "speed_m_s": 0.8,
+  "sample_period_s": 5,
+  "spawn": [
+    4,
+    -8,
+    -8.4
+  ],
+  "source_categories_preserved": 9
+}

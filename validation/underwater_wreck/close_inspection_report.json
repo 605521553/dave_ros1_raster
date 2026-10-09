@@ -1,0 +1,21 @@
+{
+  "waypoints": 126,
+  "speed_m_s": 0.8,
+  "cruise_z_range": [
+    -8.4,
+    -7.35
+  ],
+  "path_length_m": 171.97995404648256,
+  "duration_s": 214.93857567195698,
+  "min_center_aabb_distance_m": 1.0532431734665209,
+  "approx_min_surface_clearance_m": 0.6032431734665209,
+  "closest": [
+    "rocks:rock_3808.001",
+    [
+      -4.307682284487898,
+      10.764255634770057,
+      -8.290434828894357
+    ]
+  ],
+  "validation": "8001 static LIPB samples against original per-object AABBs; no complete high-speed PID/current validation"
+}

@@ -1,0 +1,7 @@
+# Four simulated acoustic materials, not measured coefficients
+# NPS parser skips exactly three header lines
+# model_name,mu
+wreck_stone,0.0012
+wreck_wood,0.0006
+wreck_metal,0.0040
+wreck_soil,0.0002

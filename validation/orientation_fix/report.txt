@@ -1,0 +1,1 @@
+{'valid_columns': 78, 'median_range_error_same': 0.041426897048950195, 'median_range_error_mirrored': 0.04501175880432129, 'first_direction': 'x: -0.9063103199005127\ny: 0.0\nz: 0.42261284589767456', 'last_direction': 'x: 0.905674934387207\ny: 0.0\nz: 0.4239727258682251'}

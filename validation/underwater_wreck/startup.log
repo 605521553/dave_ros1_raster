@@ -1,0 +1,131 @@
+[33m[WARN] [1791439902.359646632]: The root link rexrov/base_link has an inertia specified in the URDF, but KDL does not support a root link with an inertia.  As a workaround, you can add an extra dummy link to your URDF.[0m
+[INFO] [1791439902.677446, 0.000000]: Loading model XML from ros parameter robot_description
+[INFO] [1791439902.681105, 0.000000]: Waiting for service /gazebo/spawn_urdf_model
+[INFO] [1791439905.154783, 0.000000]: Calling service /gazebo/spawn_urdf_model
+[INFO] [1791439906.954950, 0.000000]: Spawn status: SpawnModel: Successfully spawned entity
+[0m[INFO] [1791439902.781297447]: Finished loading Gazebo ROS API Plugin.[0m
+[0m[INFO] [1791439902.782402901]: waitForService: Service [/gazebo/set_physics_properties] has not been advertised, waiting...[0m
+[0m[INFO] [1791439904.990253539]: waitForService: Service [/gazebo/set_physics_properties] is now available.[0m
+[0m[INFO] [1791439905.006295651]: Physics dynamic reconfigure ready.[0m
+[0m[INFO] [1791439906.947445510]: Camera Plugin: Using the 'robotNamespace' param: '/rexrov'[0m
+[0m[INFO] [1791439906.952282628]: Camera Plugin (ns = /rexrov)  <tf_prefix_>, set to ""[0m
+[0m[INFO] [1791439907.025835282]: [0m
+[0m[INFO] [1791439907.025878974]: ==================================================[0m
+[0m[INFO] [1791439907.025887137]: ============   SONAR PLUGIN LOADED   =============[0m
+[0m[INFO] [1791439907.025892402]: ==================================================[0m
+[0m[INFO] [1791439907.025896770]: ============      RASTER VERSION     =============[0m
+[0m[INFO] [1791439907.025901338]: ==================================================[0m
+[0m[INFO] [1791439907.025910475]: Maximum view range  [m] = 10[0m
+[0m[INFO] [1791439907.025915907]: Distance resolution [m] = 0.0501672[0m
+[0m[INFO] [1791439907.025921667]: # of Beams = 512[0m
+[0m[INFO] [1791439907.025926279]: # of Rays / Beam (Elevation, Azimuth) = (25, 1)[0m
+[0m[INFO] [1791439907.025930205]: Calculation skips (Elevation) = 1[0m
+[0m[INFO] [1791439907.025934729]: # of Time data / Beam = 399[0m
+[0m[INFO] [1791439907.025938811]: Reflectivity method : Variational (based on model name)[0m
+[0m[INFO] [1791439907.025943035]: ==================================================[0m
+[0m[INFO] [1791439907.025947617]: [0m
+[0m[INFO] [1791439907.026165653]: Camera Plugin: Using the 'robotNamespace' param: '/rexrov'[0m
+[0m[INFO] [1791439907.027834628]: Camera Plugin (ns = /rexrov)  <tf_prefix_>, set to ""[0m
+Registered HydrodynamicModel type fossen
+Registered HydrodynamicModel type sphere
+Registered HydrodynamicModel type cylinder
+Registered HydrodynamicModel type spheroid
+Registered HydrodynamicModel type box
+rexrov::rexrov/base_link::added_mass
+      779.79     -6.8773     -103.32      8.5426     -165.54     -7.8033
+     -6.8773        1222       51.29      409.44     -5.8488      62.726
+     -103.32       51.29      3659.9      6.1112     -386.42      10.774
+      8.5426      409.44      6.1112       534.9     -10.027      21.019
+     -165.54     -5.8488     -386.42     -10.027      842.69     -1.1162
+     -7.8033      62.726      10.775      21.019     -1.1162      224.32
+rexrov::rexrov/base_link::scaling_added_mass
+rexrov::rexrov/base_link::offset_added_mass
+rexrov::rexrov/base_link::linear_damping
+      -74.82           0           0           0           0           0
+           0      -69.48           0           0           0           0
+           0           0      -728.4           0           0           0
+           0           0           0      -268.8           0           0
+           0           0           0           0     -309.77           0
+           0           0           0           0           0        -105
+rexrov::rexrov/base_link::linear_damping_forward_speed
+           0           0           0           0           0           0
+           0           0           0           0           0           0
+           0           0           0           0           0           0
+           0           0           0           0           0           0
+           0           0           0           0           0           0
+           0           0           0           0           0           0
+rexrov::rexrov/base_link::quadratic_damping
+     -748.22           0           0           0           0           0
+           0     -992.53           0           0           0           0
+           0           0    -1821.01           0           0           0
+           0           0           0        -672           0           0
+           0           0           0           0     -774.44           0
+           0           0           0           0           0     -523.27
+rexrov::rexrov/base_link::scaling_damping
+rexrov::rexrov/base_link::offset_linear_damping
+rexrov::rexrov/base_link::offset_lin_forward_speed_damping
+rexrov::rexrov/base_link::offset_nonlin_damping
+rexrov::rexrov/base_link::volume
+     1.83826 m^3
+rexrov::rexrov/base_link::scaling_volume
+Registered ThrusterDynamics type ZeroOrder
+Registered ThrusterDynamics type FirstOrder
+Registered ThrusterDynamics type Yoerger
+Registered ThrusterDynamics type Bessa
+Registered ConversionFunction type Basic
+Registered ConversionFunction type Bessa
+Registered ConversionFunction type LinearInterp
+... logging to /root/.ros/log/213f5578-c2df-11f1-adc6-9645bc43f7ad/roslaunch-33f54017a203-5634.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/opt/dave_ws/src/bygd_rov/launch/underwater_wreck/rov.launch
+[1mstarted roslaunch server http://33f54017a203:35117/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /gazebo/enable_ros_network: True
+ * /rexrov/ground_truth_to_tf_rexrov/child_frame_id: rexrov/base_link
+ * /rexrov/ground_truth_to_tf_rexrov/footprint_frame_id: /rexrov/base_foot...
+ * /rexrov/ground_truth_to_tf_rexrov/frame_id: world
+ * /rexrov/ground_truth_to_tf_rexrov/odometry_topic: /rexrov/pose_gt
+ * /rexrov/ground_truth_to_tf_rexrov/stabilized_frame_id: /rexrov/base_stab...
+ * /rexrov/robot_description: <?xml version="1....
+ * /rosdistro: noetic
+ * /rosversion: 1.17.4
+ * /use_sim_time: True
+
+NODES
+  /
+    gazebo (gazebo_ros/gzserver)
+    world_ned_frame_publisher (tf2_ros/static_transform_publisher)
+  /rexrov/
+    ground_truth_to_tf_rexrov (uuv_assistants/uuv_message_to_tf)
+    robot_state_publisher (robot_state_publisher/robot_state_publisher)
+    spawn_bygd_rov (gazebo_ros/spawn_model)
+
+auto-starting new master
+[1mprocess[master]: started with pid [5644][0m
+[1mROS_MASTER_URI=http://localhost:11329[0m
+]2;/opt/dave_ws/src/bygd_rov/launch/underwater_wreck/rov.launch http://localhost:11329
+[1msetting /run_id to 213f5578-c2df-11f1-adc6-9645bc43f7ad[0m
+[1mprocess[rosout-1]: started with pid [5654][0m
+started core service [/rosout]
+[1mprocess[gazebo-2]: started with pid [5660][0m
+[1mprocess[world_ned_frame_publisher-3]: started with pid [5665][0m
+[1mprocess[rexrov/spawn_bygd_rov-4]: started with pid [5667][0m
+[1mprocess[rexrov/robot_state_publisher-5]: started with pid [5672][0m
+[1mprocess[rexrov/ground_truth_to_tf_rexrov-6]: started with pid [5674][0m
+[1m[rexrov/spawn_bygd_rov-4] process has finished cleanly
+log file: /root/.ros/log/213f5578-c2df-11f1-adc6-9645bc43f7ad/rexrov-spawn_bygd_rov-4*.log[0m
+[rexrov/ground_truth_to_tf_rexrov-6] killing on exit
+[rexrov/robot_state_publisher-5] killing on exit
+[world_ned_frame_publisher-3] killing on exit
+[gazebo-2] killing on exit
+[rosout-1] killing on exit
+[master] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+[1mdone[0m

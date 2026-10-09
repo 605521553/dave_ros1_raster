@@ -1,0 +1,92 @@
+{
+  "seabed": {
+    "source_objects": 1,
+    "optimized_objects": 1,
+    "material_smoothing_groups": 1,
+    "vertices": 24616,
+    "faces": 48600,
+    "source_sha256": "dc511843ed1fcbd83b98a7004435616545c670b7b52447152d5955403cf63de9",
+    "output_sha256": "8f9a18d21951b4afaf4fba7549365bba6a136cebfda5f0eacdc5914fc777bedd",
+    "coordinates_normals_uv_faces_and_materials_preserved": true
+  },
+  "sediment": {
+    "source_objects": 35,
+    "optimized_objects": 1,
+    "material_smoothing_groups": 1,
+    "vertices": 4235,
+    "faces": 7560,
+    "source_sha256": "d1729dac900fc87d35de642e50777bcfa3c5fffeacddd378e15e75015a69f65a",
+    "output_sha256": "6a3b61a8b0cefb9ca83ea3da8cf8b793c3cd1cd07bf55a3a180fe74ad34e0404",
+    "coordinates_normals_uv_faces_and_materials_preserved": true
+  },
+  "marine_growth": {
+    "source_objects": 1400,
+    "optimized_objects": 1,
+    "material_smoothing_groups": 1,
+    "vertices": 16800,
+    "faces": 28000,
+    "source_sha256": "038f9433058c2015275bb4ad6771cadcd59661999a99f2f0e24a183d3be6809b",
+    "output_sha256": "a2e4db2dce3b7e55a89d1ea516c08e05a0d6807c11566e0185a29eaef1940794",
+    "coordinates_normals_uv_faces_and_materials_preserved": true
+  },
+  "floating_objects": {
+    "source_objects": 77,
+    "optimized_objects": 1,
+    "material_smoothing_groups": 1,
+    "vertices": 616,
+    "faces": 924,
+    "source_sha256": "e6d985818e82dd31d2ffb6b52238f14e3034683e42bb250032e1d44907cd5cba",
+    "output_sha256": "322b3442b23677e419dab0a28befbf2d3ba056c3d92c6b093420f843a70fa230",
+    "coordinates_normals_uv_faces_and_materials_preserved": true
+  },
+  "rocks": {
+    "source_objects": 3753,
+    "optimized_objects": 1,
+    "material_smoothing_groups": 1,
+    "vertices": 45036,
+    "faces": 75060,
+    "source_sha256": "e84f909000e6c086dc4a8c0b18f5ba0668f228f5647c33132b3d0cc6bbdbed71",
+    "output_sha256": "b6e18033c718d8be60f4598e2d434df8032751db5844de54283466eef01f5116",
+    "coordinates_normals_uv_faces_and_materials_preserved": true
+  },
+  "building_ruins": {
+    "source_objects": 39,
+    "optimized_objects": 1,
+    "material_smoothing_groups": 3,
+    "vertices": 736,
+    "faces": 1316,
+    "source_sha256": "c1e6afddd5fefe058d5c259a5242ea52bcc5882616d303a1fd6daa800556d7f0",
+    "output_sha256": "adf817cb653ca2afce4927209de5413f4adf6b8d8b80b456d92efbd28d9aeec9",
+    "coordinates_normals_uv_faces_and_materials_preserved": true
+  },
+  "debris": {
+    "source_objects": 150,
+    "optimized_objects": 1,
+    "material_smoothing_groups": 1,
+    "vertices": 1200,
+    "faces": 1800,
+    "source_sha256": "766a8cd39d4ad296659aa8d8a53276632cc99f123fd7b3b813c29011a9be76ca",
+    "output_sha256": "25be9ce6c87d36bf61602f05bedbaba83e3084cb4ee7e2561e984cafd6ddfb13",
+    "coordinates_normals_uv_faces_and_materials_preserved": true
+  },
+  "shipwreck": {
+    "source_objects": 356,
+    "optimized_objects": 1,
+    "material_smoothing_groups": 3,
+    "vertices": 6102,
+    "faces": 10780,
+    "source_sha256": "7d6ad3092b8d9c959eb0c3fac361360c4e64b2b61dc002ce70f060bd64c7e91d",
+    "output_sha256": "937096eab3359d34b139f95734c24dd5fc53490631a32370aebbc8b2386bbf61",
+    "coordinates_normals_uv_faces_and_materials_preserved": true
+  },
+  "pipes": {
+    "source_objects": 26,
+    "optimized_objects": 1,
+    "material_smoothing_groups": 2,
+    "vertices": 2694,
+    "faces": 5376,
+    "source_sha256": "a053b8f17cb9b0dc5a041063109bab2334a6ba581b8e26861b93ffb7529e225c",
+    "output_sha256": "fb45e7fba49644a4675857031386bbcdcaad7adf7b80cfd96a06a94dd30755e5",
+    "coordinates_normals_uv_faces_and_materials_preserved": true
+  }
+}

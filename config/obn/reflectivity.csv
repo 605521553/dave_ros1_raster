@@ -1,0 +1,10 @@
+# Simulated acoustic coefficients; not measured material properties
+# NPS parser skips exactly three header lines; proxy details in launch/obn/README.md
+# model_name,mu
+obn_rock,0.0012
+obn_sand,0.0002
+obn_steel,0.0040
+obn_polymer,0.0006
+obn_rubber,0.0006
+obn_cable,0.0006
+obn_glass,0.0012

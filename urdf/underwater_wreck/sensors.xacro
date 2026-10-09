@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="paired_sensors" params="ns model sensors">
+    <!-- 两传感器挂在同一坐标系：原点、俯仰和观察方向严格共用。 -->
+    <link name="${ns}/sensor_mount_link"/>
+    <joint name="${ns}/sensor_mount_joint" type="fixed">
+      <parent link="${ns}/base_link"/><child link="${ns}/sensor_mount_link"/>
+      <origin xyz="${' '.join(map(str,model['sensor_mount']['xyz']))}"
+              rpy="${' '.join(map(str,model['sensor_mount']['rpy']))}"/>
+    </joint>
+    <link name="${ns}/rgbd_optical_frame"/>
+    <joint name="${ns}/rgbd_optical_joint" type="fixed">
+      <parent link="${ns}/sensor_mount_link"/><child link="${ns}/rgbd_optical_frame"/>
+      <origin xyz="0 0 0" rpy="${' '.join(map(str,model['sensor_mount']['optical_rpy']))}"/>
+    </joint>
+    <link name="${ns}/sonar_optical_frame"/>
+    <joint name="${ns}/sonar_optical_joint" type="fixed">
+      <parent link="${ns}/rgbd_optical_frame"/><child link="${ns}/sonar_optical_frame"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+    <xacro:property name="rgb" value="${sensors['rgbd']}"/>
+    <xacro:property name="son" value="${sensors['sonar']}"/>
+    <!-- Gazebo camera 本身沿安装坐标 +X 观察，optical TF 只定义输出消息坐标。 -->
+    <gazebo reference="${ns}/sensor_mount_link">
+      <sensor name="rgbd" type="depth">
+        <pose>0 0 0 0 0 0</pose><always_on>true</always_on><visualize>false</visualize>
+        <update_rate>${rgb['rate']}</update_rate>
+        <camera>
+          <horizontal_fov>${rgb['horizontal_fov']}</horizontal_fov>
+          <image><width>${rgb['width']}</width><height>${rgb['height']}</height><format>R8G8B8</format></image>
+          <clip><near>${rgb['near']}</near><far>${rgb['far']}</far></clip>
+        </camera>
+        <plugin name="rgbd_ros" filename="libgazebo_ros_openni_kinect.so">
+          <robotNamespace>/${ns}</robotNamespace><cameraName>rgbd</cameraName>
+          <alwaysOn>true</alwaysOn><updateRate>0</updateRate>
+          <imageTopicName>rgb/image_raw</imageTopicName><cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+          <depthImageTopicName>depth/image_raw</depthImageTopicName><depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
+          <pointCloudTopicName>points</pointCloudTopicName><frameName>${ns}/rgbd_optical_frame</frameName>
+          <pointCloudCutoff>${rgb['near']}</pointCloudCutoff><pointCloudCutoffMax>${rgb['far']}</pointCloudCutoffMax>
+          <hackBaseline>0</hackBaseline>
+          <Cx>320.0</Cx><Cy>240.0</Cy><CxPrime>320.0</CxPrime>
+        </plugin>
+      </sensor>
+      <!-- 真正的 depth/raster/CUDA 路径，复用已有 .so；不是 gpu_ray 替代版。 -->
+      <sensor name="forward_sonar_raster" type="depth">
+        <pose>0 0 0 0 0 0</pose><always_on>true</always_on><visualize>false</visualize>
+        <update_rate>${son['rate']}</update_rate>
+        <camera>
+          <horizontal_fov>${son['horizontal_fov']}</horizontal_fov>
+          <image><width>${son['width']}</width><height>${son['height']}</height><format>R8G8B8</format></image>
+          <clip><near>${son['near']}</near><far>${son['far']}</far></clip>
+        </camera>
+        <plugin name="sonar_raster_ros" filename="libbygd_multibeam_sonar_labeled_ros_plugin.so">
+          <robotNamespace>/${ns}</robotNamespace><cameraName>sonar</cameraName>
+          <frameName>${ns}/sonar_optical_frame</frameName><updateRate>0</updateRate>
+          <imageTopicName>raster/image_raw</imageTopicName><cameraInfoTopicName>raster/camera_info</cameraInfoTopicName>
+          <depthImageTopicName>raster/depth</depthImageTopicName><depthImageCameraInfoTopicName>raster/depth/camera_info</depthImageCameraInfoTopicName>
+          <pointCloudTopicName>raster/points</pointCloudTopicName>
+          <sonarImageTopicName>sonar_image</sonarImageTopicName><sonarImageRawTopicName>sonar_image_raw</sonarImageRawTopicName>
+          <sonarImageGrayTopicName>sonar_image_gray</sonarImageGrayTopicName>
+          <publishObjectHits>true</publishObjectHits>
+          <objectHitsTopicName>object_hits</objectHitsTopicName>
+          <objectMaterial><model>wreck_stone</model><material>stone</material></objectMaterial>
+          <objectMaterial><model>wreck_wood</model><material>wood</material></objectMaterial>
+          <objectMaterial><model>wreck_metal</model><material>metal</material></objectMaterial>
+          <objectMaterial><model>wreck_soil</model><material>soil</material></objectMaterial>
+          <verticalFOV>${son['vertical_beam_degrees']}</verticalFOV>
+          <sonarFreq>${son['frequency']}</sonarFreq><bandwidth>${son['bandwidth']}</bandwidth>
+          <soundSpeed>${son['sound_speed']}</soundSpeed><sourceLevel>${son['source_level']}</sourceLevel>
+          <maxDistance>${son['max_distance']}</maxDistance><sensorGain>${son['gain']}</sensorGain>
+          <displayWidth>${son['display_width']}</displayWidth>
+          <displayHeight>${son['display_height']}</displayHeight>
+          <displayMargin>${son['display_margin']}</displayMargin>
+          <displayFixedDb>${son['display_fixed_db']}</displayFixedDb>
+          <displayFloorDb>${son['display_floor_db']}</displayFloorDb>
+          <displayCeilingDb>${son['display_ceiling_db']}</displayCeilingDb>
+          <displayGamma>${son['display_gamma']}</displayGamma>
+          <raySkips>${son['ray_skips']}</raySkips><plotScaler>0</plotScaler>
+          <!-- 新场景按根模型名称配置声学反射率，视觉 MTL 保持原样。 -->
+          <constantReflectivity>false</constantReflectivity>
+          <customSDFTagReflectivity>false</customSDFTagReflectivity>
+          <!-- Track only the four acoustic material models. -->
+          <fiducial>wreck_stone</fiducial><fiducial>wreck_wood</fiducial>
+          <fiducial>wreck_metal</fiducial><fiducial>wreck_soil</fiducial>
+          <!-- NPS resolves relative paths below its package/worlds directory.
+               Both packages are siblings in this workspace and catkin install/share. -->
+          <reflectivityDatabaseFile>../../bygd_rov/config/underwater_wreck/reflectivity.csv</reflectivityDatabaseFile><artificialVehicleVibration>false</artificialVehicleVibration>
+          <writeLog>false</writeLog><writeFrameInterval>5</writeFrameInterval><debugFlag>false</debugFlag>
+        </plugin>
+      </sensor>
+    </gazebo>
+  </xacro:macro>
+</robot>

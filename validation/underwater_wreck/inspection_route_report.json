@@ -1,0 +1,21 @@
+{
+  "waypoint_count": 126,
+  "interpolator": "lipb",
+  "samples": 8001,
+  "object_aabbs": 5837,
+  "min_center_aabb_distance_m": 1.0532432209622427,
+  "enclosing_rov_radius_m": 0.45,
+  "approx_min_surface_clearance_m": 0.5924703994415449,
+  "tracking_allowance_m": 0.55,
+  "closest_object": "rocks:rock_3808.001",
+  "closest_position": [
+    -4.307682031150841,
+    10.764262670048742,
+    -8.290435149600208
+  ],
+  "max_sample_gap_m": 0.021545643041395633,
+  "approx_path_length_m": 171.9799605124445,
+  "duration_s": 214.9385839933134,
+  "route_sha256": "a6064fd127c1c50fa608d7adcf9a778465130df6547393904c317c5074d12de2",
+  "limitations": "Static sampled geometry only; no full PID/current flight test or arbitrary initial-position approach check"
+}

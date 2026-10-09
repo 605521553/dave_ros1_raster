@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="paired_sensors" params="ns model sensors">
+    <!-- 两传感器挂在同一坐标系：原点、俯仰和观察方向严格共用。 -->
+    <link name="${ns}/sensor_mount_link"/>
+    <joint name="${ns}/sensor_mount_joint" type="fixed">
+      <parent link="${ns}/base_link"/><child link="${ns}/sensor_mount_link"/>
+      <origin xyz="${' '.join(map(str,model['sensor_mount']['xyz']))}"
+              rpy="${' '.join(map(str,model['sensor_mount']['rpy']))}"/>
+    </joint>
+    <link name="${ns}/rgbd_optical_frame"/>
+    <joint name="${ns}/rgbd_optical_joint" type="fixed">
+      <parent link="${ns}/sensor_mount_link"/><child link="${ns}/rgbd_optical_frame"/>
+      <origin xyz="0 0 0" rpy="${' '.join(map(str,model['sensor_mount']['optical_rpy']))}"/>
+    </joint>
+    <link name="${ns}/sonar_optical_frame"/>
+    <joint name="${ns}/sonar_optical_joint" type="fixed">
+      <parent link="${ns}/rgbd_optical_frame"/><child link="${ns}/sonar_optical_frame"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+    <xacro:property name="rgb" value="${sensors['rgbd']}"/>
+    <xacro:property name="son" value="${sensors['sonar']}"/>
+    <!-- Gazebo camera 本身沿安装坐标 +X 观察，optical TF 只定义输出消息坐标。 -->
+    <gazebo reference="${ns}/sensor_mount_link">
+      <sensor name="rgbd" type="depth">
+        <pose>0 0 0 0 0 0</pose><always_on>true</always_on><visualize>false</visualize>
+        <update_rate>${rgb['rate']}</update_rate>
+        <camera>
+          <horizontal_fov>${rgb['horizontal_fov']}</horizontal_fov>
+          <image><width>${rgb['width']}</width><height>${rgb['height']}</height><format>R8G8B8</format></image>
+          <clip><near>${rgb['near']}</near><far>${rgb['far']}</far></clip>
+        </camera>
+        <plugin name="rgbd_ros" filename="libgazebo_ros_openni_kinect.so">
+          <robotNamespace>/${ns}</robotNamespace><cameraName>rgbd</cameraName>
+          <alwaysOn>true</alwaysOn><updateRate>0</updateRate>
+          <imageTopicName>rgb/image_raw</imageTopicName><cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+          <depthImageTopicName>depth/image_raw</depthImageTopicName><depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
+          <pointCloudTopicName>points</pointCloudTopicName><frameName>${ns}/rgbd_optical_frame</frameName>
+          <pointCloudCutoff>${rgb['near']}</pointCloudCutoff><pointCloudCutoffMax>${rgb['far']}</pointCloudCutoffMax>
+          <hackBaseline>0</hackBaseline>
+          <Cx>320.0</Cx><Cy>240.0</Cy><CxPrime>320.0</CxPrime>
+        </plugin>
+      </sensor>
+      <!-- 真正的 depth/raster/CUDA 路径，复用已有 .so；不是 gpu_ray 替代版。 -->
+      <sensor name="forward_sonar_raster" type="depth">
+        <pose>0 0 0 0 0 0</pose><always_on>true</always_on><visualize>false</visualize>
+        <update_rate>${son['rate']}</update_rate>
+        <camera>
+          <horizontal_fov>${son['horizontal_fov']}</horizontal_fov>
+          <image><width>${son['width']}</width><height>${son['height']}</height><format>R8G8B8</format></image>
+          <clip><near>${son['near']}</near><far>${son['far']}</far></clip>
+        </camera>
+        <plugin name="sonar_raster_ros" filename="libnps_multibeam_sonar_ros_plugin.so">
+          <robotNamespace>/${ns}</robotNamespace><cameraName>sonar</cameraName>
+          <frameName>${ns}/sonar_optical_frame</frameName><updateRate>0</updateRate>
+          <imageTopicName>raster/image_raw</imageTopicName><cameraInfoTopicName>raster/camera_info</cameraInfoTopicName>
+          <depthImageTopicName>raster/depth</depthImageTopicName><depthImageCameraInfoTopicName>raster/depth/camera_info</depthImageCameraInfoTopicName>
+          <pointCloudTopicName>raster/points</pointCloudTopicName>
+          <sonarImageTopicName>sonar_image</sonarImageTopicName><sonarImageRawTopicName>sonar_image_raw</sonarImageRawTopicName>
+          <sonarImageGrayTopicName>sonar_image_gray</sonarImageGrayTopicName>
+          <verticalFOV>${son['vertical_beam_degrees']}</verticalFOV>
+          <sonarFreq>${son['frequency']}</sonarFreq><bandwidth>${son['bandwidth']}</bandwidth>
+          <soundSpeed>${son['sound_speed']}</soundSpeed><sourceLevel>${son['source_level']}</sourceLevel>
+          <maxDistance>${son['max_distance']}</maxDistance><sensorGain>${son['gain']}</sensorGain>
+          <raySkips>${son['ray_skips']}</raySkips><plotScaler>0</plotScaler>
+          <!-- 首版使用常反射率，避免将视觉材质误当作真实声学反射率。 -->
+          <constantReflectivity>true</constantReflectivity><artificialVehicleVibration>false</artificialVehicleVibration>
+          <writeLog>false</writeLog><writeFrameInterval>5</writeFrameInterval><debugFlag>false</debugFlag>
+        </plugin>
+      </sensor>
+    </gazebo>
+  </xacro:macro>
+</robot>

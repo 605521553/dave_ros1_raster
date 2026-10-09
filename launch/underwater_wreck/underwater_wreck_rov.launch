@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- 一键启动场景+自定义 ROV（替代原终端 1、2）；不重复启动 PID 或轨迹。 -->
+  <!-- record:=true 自动启动配对保存；输出按会话分目录，不覆盖已有数据。 -->
+  <arg name="record" default="false"/>
+  <arg name="output_dir" default="$(find bygd_rov)/datasets/underwater_wreck"/>
+  <arg name="object_hits_topic" default="object_hits"/>
+  <arg name="object_wait_timeout" default="2.0"/>
+  <arg name="sonar_image_topic" default="sonar_image_gray"/>
+  <arg name="sample_period" default="5.0"/>
+  <arg name="lockstep" default="true"/>
+  <arg name="gui" default="true"/><arg name="paused" default="false"/>
+  <arg name="x" default="4"/><arg name="y" default="-8"/><arg name="z" default="-8.4"/><arg name="yaw" default="-1.5707963267948966"/>
+  <arg name="namespace" default="rexrov"/>
+  <arg name="rov_variant" default="r45"/>
+  <include file="$(find bygd_rov)/launch/underwater_wreck/underwater_wreck_world.launch">
+    <arg name="lockstep" value="$(arg lockstep)"/>
+    <arg name="gui" value="$(arg gui)"/><arg name="paused" value="$(arg paused)"/>
+  </include>
+  <include file="$(find bygd_rov)/launch/underwater_wreck/underwater_wreck_upload_rov.launch">
+    <arg name="rov_variant" value="$(arg rov_variant)"/>
+    <arg name="namespace" value="$(arg namespace)"/>
+    <arg name="x" value="$(arg x)"/><arg name="y" value="$(arg y)"/><arg name="z" value="$(arg z)"/><arg name="yaw" value="$(arg yaw)"/>
+  </include>
+  <include if="$(arg record)" file="$(find bygd_sonar_labels)/launch/record_pairs.launch">
+    <arg name="namespace" value="$(arg namespace)"/>
+    <arg name="output_dir" value="$(arg output_dir)"/>
+    <arg name="sample_period" value="$(arg sample_period)"/>
+    <arg name="object_hits_topic" value="$(arg object_hits_topic)"/>
+    <arg name="object_wait_timeout" value="$(arg object_wait_timeout)"/>
+    <arg name="sonar_image_topic" value="$(arg sonar_image_topic)"/>
+  </include>
+</launch>

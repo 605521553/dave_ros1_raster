@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!-- RexROV actuator poses and inertial values adapted from UUV Simulator.
+     Copyright (c) 2016 The UUV Simulator Authors, Apache License 2.0.
+     http://www.apache.org/licenses/LICENSE-2.0 ; provided AS IS without warranties. -->
+<robot name="bygd_rov" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:arg name="namespace" default="rexrov"/>
+  <xacro:arg name="rov_variant" default="r45"/>
+  <xacro:property name="variant" value="$(arg rov_variant)"/>
+  <xacro:property name="ns" value="$(arg namespace)"/>
+  <xacro:property name="model" value="${xacro.load_yaml('$(find bygd_rov)/config/underwater_wreck/rov_model.yaml')}"/>
+  <xacro:property name="variant_path" value="$(find bygd_rov)/config/vehicles/$(arg rov_variant)/model.yaml"/>
+  <xacro:property name="vehicle" value="${xacro.load_yaml(variant_path)}"/>
+  <xacro:property name="model" lazy_eval="false" value="${dict(model, visual_mesh=vehicle['visual_mesh'], visual_scale=vehicle['visual_scale'], visual_xyz=vehicle['visual_xyz'], visual_rpy=vehicle['visual_rpy'], sensor_mount=dict(model['sensor_mount'], xyz=vehicle['sensor_xyz']))}"/>
+  <xacro:include filename="$(find bygd_rov)/urdf/vehicle_collisions.xacro"/>
+  <xacro:property name="sensors" value="${xacro.load_yaml('$(find bygd_rov)/config/underwater_wreck/sensors.yaml')}"/>
+  <xacro:include filename="$(find uuv_descriptions)/urdf/common.urdf.xacro"/>
+  <xacro:include filename="$(find bygd_rov)/urdf/rov_hydrodynamics.xacro"/>
+  <xacro:include filename="$(find uuv_gazebo_ros_plugins)/urdf/thruster_snippets.xacro"/>
+  <xacro:include filename="$(find uuv_gazebo_ros_plugins)/urdf/misc.xacro"/>
+  <xacro:include filename="$(find uuv_sensor_ros_plugins)/urdf/pose_3d_snippets.xacro"/>
+  <xacro:include filename="$(find bygd_rov)/urdf/underwater_wreck/sensors.xacro"/>
+
+  <!-- 重要：当前是数据采集用的 RexROV 兼容动力学底座，不是小型 ROV 的真实物理标定。
+       保留质量、惯量、水动力阻尼和虚拟推进器布局，使原终端 3 的 PID/TAM 可直接工作。
+       替换真实动力学时必须一起更新质量、浮力、TAM、推力限制和 PID。 -->
+  <link name="${ns}/base_link">
+    <inertial><origin xyz="0 0 0"/><mass value="1862.87"/>
+      <inertia ixx="525.39" ixy="1.44" ixz="33.41" iyy="794.20" iyz="2.6" izz="691.23"/>
+    </inertial>
+    <visual name="custom_rov_visual">
+      <origin xyz="${' '.join(map(str,model['visual_xyz']))}" rpy="${' '.join(map(str,model['visual_rpy']))}"/>
+      <geometry><mesh filename="${model['visual_mesh']}" scale="${' '.join(map(str,model['visual_scale']))}"/></geometry>
+    </visual>
+    <xacro:vehicle_box_collisions items="${vehicle['collisions']}"/>
+  </link>
+  <gazebo>
+    <plugin name="uuv_plugin" filename="libuuv_underwater_object_ros_plugin.so">
+      <fluid_density>1028.0</fluid_density><flow_velocity_topic>hydrodynamics/current_velocity</flow_velocity_topic>
+      <debug>0</debug><xacro:bygd_rov_hydro_model namespace="${ns}"/>
+    </plugin>
+  </gazebo>
+  <!-- 只保留推进器动力学/转换插件，不显示原 RexROV 外置螺旋桨。
+       位姿来自原 rexrov_actuators.xacro，与原 TAM 完全一致。 -->
+  <xacro:macro name="virtual_thruster" params="ns id xyz rpy">
+    <joint name="${ns}/thruster_${id}_joint" type="continuous">
+      <origin xyz="${xyz}" rpy="${rpy}"/><axis xyz="1 0 0"/>
+      <parent link="${ns}/base_link"/><child link="${ns}/thruster_${id}"/>
+    </joint>
+    <link name="${ns}/thruster_${id}">
+      <inertial><mass value="0.001"/><inertia ixx="1e-8" ixy="0" ixz="0" iyy="1e-8" iyz="0" izz="1e-8"/></inertial>
+      <collision><geometry><sphere radius="0.000001"/></geometry></collision>
+    </link>
+    <gazebo reference="${ns}/thruster_${id}"><selfCollide>false</selfCollide></gazebo>
+    <gazebo><plugin name="${ns}_${id}_thruster_model" filename="libuuv_thruster_ros_plugin.so">
+      <linkName>${ns}/thruster_${id}</linkName><jointName>${ns}/thruster_${id}_joint</jointName><thrusterID>${id}</thrusterID>
+      <xacro:rotor_dyn_first_order_macro time_constant="0.05"/><xacro:thruster_cf_basic_macro rotor_constant="0.00031"/>
+    </plugin></gazebo>
+  </xacro:macro>
+  <xacro:virtual_thruster ns="${ns}" id="0" xyz="-0.890895 0.334385 0.528822" rpy="${0*d2r} ${-74.53*d2r} ${-53.21*d2r}"/>
+  <xacro:virtual_thruster ns="${ns}" id="1" xyz="-0.890895 -0.334385 0.528822" rpy="${0*d2r} ${-74.53*d2r} ${53.21*d2r}"/>
+  <xacro:virtual_thruster ns="${ns}" id="2" xyz="0.890895 0.334385 0.528822" rpy="${0*d2r} ${-105.47*d2r} ${53.21*d2r}"/>
+  <xacro:virtual_thruster ns="${ns}" id="3" xyz="0.890895 -0.334385 0.528822" rpy="${0*d2r} ${-105.47*d2r} ${-53.21*d2r}"/>
+  <xacro:virtual_thruster ns="${ns}" id="4" xyz="-0.412125 0.505415 0.129" rpy="${0*d2r} ${0*d2r} ${45*d2r}"/>
+  <xacro:virtual_thruster ns="${ns}" id="5" xyz="-0.412125 -0.505415 0.129" rpy="${0*d2r} ${0*d2r} ${-45*d2r}"/>
+  <xacro:virtual_thruster ns="${ns}" id="6" xyz="0.412125 0.505415 0.129" rpy="${0*d2r} ${0*d2r} ${135*d2r}"/>
+  <xacro:virtual_thruster ns="${ns}" id="7" xyz="0.412125 -0.505415 0.129" rpy="${0*d2r} ${0*d2r} ${-135*d2r}"/>
+  <xacro:default_joint_state_publisher namespace="${ns}" update_rate="50"/>
+  <xacro:default_pose_3d_macro namespace="${ns}" parent_link="${ns}/base_link" inertial_reference_frame="world"/>
+  <xacro:paired_sensors ns="${ns}" model="${model}" sensors="${sensors}"/>
+</robot>

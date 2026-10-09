@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- 相当于原终端 2：仅生成机器人和传感器。Gazebo 世界应已启动。 -->
+  <arg name="namespace" default="rexrov"/>
+  <arg name="rov_variant" default="r45"/>
+  <arg name="x" default="4"/><arg name="y" default="-8"/><arg name="z" default="-8.4"/><arg name="yaw" default="-1.5707963267948966"/>
+  <group ns="$(arg namespace)">
+    <param name="bygd_rov_variant" value="$(arg rov_variant)"/>
+    <param name="bygd_vehicle_config_file" value="$(find bygd_rov)/config/vehicles/$(arg rov_variant)/model.yaml"/>
+    <param name="bygd_scene_config_dir" value="$(find bygd_rov)/config/underwater_wreck"/>
+    <param name="robot_description" command="$(find xacro)/xacro '$(find bygd_rov)/urdf/underwater_wreck/bygd_rov.xacro' namespace:=$(arg namespace) rov_variant:=$(arg rov_variant)"/>
+    <node pkg="gazebo_ros" type="spawn_model" name="spawn_bygd_rov" output="screen"
+      args="-urdf -param robot_description -model $(arg namespace) -x $(arg x) -y $(arg y) -z $(arg z) -Y $(arg yaw)"/>
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen"/>
+  </group>
+  <include file="$(find uuv_assistants)/launch/message_to_tf.launch">
+    <arg name="namespace" value="$(arg namespace)"/><arg name="world_frame" value="world"/>
+    <arg name="child_frame_id" value="$(arg namespace)/base_link"/>
+  </include>
+</launch>

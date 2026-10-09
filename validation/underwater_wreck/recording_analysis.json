@@ -1,0 +1,49 @@
+{
+  "original_session": {
+    "accepted": 0,
+    "written": 0,
+    "error": null
+  },
+  "classification_reflectivity": {
+    "observation_wall_seconds": 55,
+    "rgb": 4,
+    "depth": 4,
+    "gray": 4,
+    "raw": 4,
+    "written": 3,
+    "stamp_deltas_ms": [
+      0.0
+    ]
+  },
+  "constant_reflectivity_control": {
+    "observation_wall_seconds": 55,
+    "rgb": 47,
+    "depth": 47,
+    "gray": 46,
+    "raw": 46,
+    "metadata": {
+      "namespace": "rexrov",
+      "topics": [
+        "/rexrov/rgbd/rgb/image_raw",
+        "/rexrov/rgbd/depth/image_raw",
+        "/rexrov/sonar/sonar_image_gray",
+        "/rexrov/sonar/sonar_image_raw"
+      ],
+      "sample_period": 1.0,
+      "sonar_image_topic": "/rexrov/sonar/sonar_image_gray",
+      "sonar_png_encoding": "same as source (bgr8 or mono8)",
+      "sync_slop": 0.03,
+      "depth_units": "metres; float32 NPY; NaNs unchanged",
+      "synchronization": "exact RGB-depth and exact sonar-image/raw stamps; approximate across sensors",
+      "native_sonar_note": "Raster plugin uses left-to-right beam order and optical-frame beam_directions (sin(a),0,cos(a)); sonar fan preserves the same left/right orientation. Native messages are preserved unchanged.",
+      "pose_note": "Bag includes latest received pose_gt with its own acquisition stamp; no claim of interpolated pose.",
+      "sonar_image_encoding": "mono8",
+      "accepted": 18,
+      "written": 18,
+      "dropped_writer_queue": 0,
+      "error": null
+    }
+  },
+  "functional_configuration_modified": false,
+  "finding": "Sensor initialization delay and per-model per-pixel selection-buffer reflectivity overhead; recording and stamp matching verified."
+}

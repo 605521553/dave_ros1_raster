@@ -1,0 +1,328 @@
+{
+  "samples": 6001,
+  "virtual_thruster_min_triangle_aabb_distances_m": [
+    0.7111100767077949,
+    0.47935604732548015,
+    0.7119229158381887,
+    0.6981206257873112,
+    0.6632188415934578,
+    0.6694978593127177,
+    0.6539206543472242,
+    0.6859517566160686
+  ],
+  "max_thruster_sample_gap_m": [
+    0.08588316323537067,
+    0.0836542641898761,
+    0.08588224265794749,
+    0.08368175106365595,
+    0.08517588360888895,
+    0.08337492274942743,
+    0.08517545421791375,
+    0.0833876818053302
+  ],
+  "virtual_thruster_radius_m": 1e-06,
+  "all_targets_have_joint_fov": true,
+  "targets": [
+    {
+      "target": [
+        -7,
+        1,
+        -9.6
+      ],
+      "joint_fov_samples": 92,
+      "nearest_path_distance_m": 1.766069462455714
+    },
+    {
+      "target": [
+        -3.5,
+        1,
+        -9.6
+      ],
+      "joint_fov_samples": 12,
+      "nearest_path_distance_m": 2.799503162942557
+    },
+    {
+      "target": [
+        0,
+        1,
+        -9.6
+      ],
+      "joint_fov_samples": 85,
+      "nearest_path_distance_m": 1.6651200670210429
+    },
+    {
+      "target": [
+        3.5,
+        1,
+        -9.6
+      ],
+      "joint_fov_samples": 55,
+      "nearest_path_distance_m": 2.3664765989223246
+    },
+    {
+      "target": [
+        7,
+        1,
+        -9.6
+      ],
+      "joint_fov_samples": 124,
+      "nearest_path_distance_m": 1.7897858785810516
+    },
+    {
+      "target": [
+        -7,
+        5,
+        -9.6
+      ],
+      "joint_fov_samples": 92,
+      "nearest_path_distance_m": 1.9153206273810948
+    },
+    {
+      "target": [
+        -3.5,
+        5,
+        -9.6
+      ],
+      "joint_fov_samples": 44,
+      "nearest_path_distance_m": 2.473377758641014
+    },
+    {
+      "target": [
+        0,
+        5,
+        -9.6
+      ],
+      "joint_fov_samples": 92,
+      "nearest_path_distance_m": 2.0272608825933385
+    },
+    {
+      "target": [
+        3.5,
+        5,
+        -9.6
+      ],
+      "joint_fov_samples": 93,
+      "nearest_path_distance_m": 2.2900083044579915
+    },
+    {
+      "target": [
+        7,
+        5,
+        -9.6
+      ],
+      "joint_fov_samples": 94,
+      "nearest_path_distance_m": 1.6754148252843277
+    },
+    {
+      "target": [
+        -7,
+        9,
+        -9.6
+      ],
+      "joint_fov_samples": 101,
+      "nearest_path_distance_m": 1.9569728718581136
+    },
+    {
+      "target": [
+        -3.5,
+        9,
+        -9.6
+      ],
+      "joint_fov_samples": 76,
+      "nearest_path_distance_m": 2.2986181487242634
+    },
+    {
+      "target": [
+        0,
+        9,
+        -9.6
+      ],
+      "joint_fov_samples": 95,
+      "nearest_path_distance_m": 1.570263263781742
+    },
+    {
+      "target": [
+        3.5,
+        9,
+        -9.6
+      ],
+      "joint_fov_samples": 54,
+      "nearest_path_distance_m": 2.2001143180635307
+    },
+    {
+      "target": [
+        7,
+        9,
+        -9.6
+      ],
+      "joint_fov_samples": 87,
+      "nearest_path_distance_m": 1.656214189552847
+    },
+    {
+      "target": [
+        -7,
+        13,
+        -9.6
+      ],
+      "joint_fov_samples": 96,
+      "nearest_path_distance_m": 1.6591228838026477
+    },
+    {
+      "target": [
+        -3.5,
+        13,
+        -9.6
+      ],
+      "joint_fov_samples": 67,
+      "nearest_path_distance_m": 2.7255114355169616
+    },
+    {
+      "target": [
+        0,
+        13,
+        -9.6
+      ],
+      "joint_fov_samples": 89,
+      "nearest_path_distance_m": 1.7365463411189561
+    },
+    {
+      "target": [
+        3.5,
+        13,
+        -9.6
+      ],
+      "joint_fov_samples": 84,
+      "nearest_path_distance_m": 1.9594423049381635
+    },
+    {
+      "target": [
+        7,
+        13,
+        -9.6
+      ],
+      "joint_fov_samples": 96,
+      "nearest_path_distance_m": 1.840601621233651
+    },
+    {
+      "target": [
+        -7,
+        17,
+        -9.6
+      ],
+      "joint_fov_samples": 83,
+      "nearest_path_distance_m": 1.6084716461016917
+    },
+    {
+      "target": [
+        -3.5,
+        17,
+        -9.6
+      ],
+      "joint_fov_samples": 5,
+      "nearest_path_distance_m": 3.080677264819893
+    },
+    {
+      "target": [
+        0,
+        17,
+        -9.6
+      ],
+      "joint_fov_samples": 73,
+      "nearest_path_distance_m": 1.6771986142906317
+    },
+    {
+      "target": [
+        3.5,
+        17,
+        -9.6
+      ],
+      "joint_fov_samples": 88,
+      "nearest_path_distance_m": 1.7148946912422176
+    },
+    {
+      "target": [
+        7,
+        17,
+        -9.6
+      ],
+      "joint_fov_samples": 49,
+      "nearest_path_distance_m": 2.0444680656562495
+    },
+    {
+      "target": [
+        -7,
+        21,
+        -9.6
+      ],
+      "joint_fov_samples": 111,
+      "nearest_path_distance_m": 1.66637743949631
+    },
+    {
+      "target": [
+        -3.5,
+        21,
+        -9.6
+      ],
+      "joint_fov_samples": 34,
+      "nearest_path_distance_m": 3.0589538845896227
+    },
+    {
+      "target": [
+        0,
+        21,
+        -9.6
+      ],
+      "joint_fov_samples": 76,
+      "nearest_path_distance_m": 1.5415864403542903
+    },
+    {
+      "target": [
+        3.5,
+        21,
+        -9.6
+      ],
+      "joint_fov_samples": 112,
+      "nearest_path_distance_m": 1.7136300818328978
+    },
+    {
+      "target": [
+        7,
+        21,
+        -9.6
+      ],
+      "joint_fov_samples": 126,
+      "nearest_path_distance_m": 2.1184254165502097
+    },
+    {
+      "target": [
+        -3.9362097975,
+        -5.368653536,
+        -9.7752398625
+      ],
+      "joint_fov_samples": 94,
+      "nearest_path_distance_m": 1.9885011187312573
+    },
+    {
+      "target": [
+        4,
+        -3,
+        -9.3
+      ],
+      "joint_fov_samples": 0,
+      "nearest_path_distance_m": 3.1474781873169273
+    }
+  ],
+  "limitations": "Nominal horizontal travel attitude; sampled virtual-thruster clearance and joint field of view only. No ray occlusion or dynamic tracking verification.",
+  "basket_surface_tested_points": 2070,
+  "basket_surface_visible_points": 1861,
+  "basket_surface_example": {
+    "target": [
+      2.349999905,
+      -4.215000153,
+      -9.86370939
+    ],
+    "joint_fov_samples": 135
+  },
+  "all_attitude_actuator_enclosing_radius_m": 1.0886515118420694,
+  "all_attitude_actuator_conservative_clearance_m": 0.0633479412979074
+}

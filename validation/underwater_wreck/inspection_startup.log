@@ -1,0 +1,169 @@
+Casadi is not installed, ignoring SymVehicle
+No module named 'casadi'
+Starting PID
+ 2026-10-08 06:27:59,914 | INFO | dp_controller_base | Setting controller as non-model-based
+REXROV -- 2026-10-08 06:27:59,916 | INFO | wp_trajectory_generator | Waypoint interpolators available:
+REXROV -- 2026-10-08 06:27:59,916 | INFO | wp_trajectory_generator | 	 - cubic
+REXROV -- 2026-10-08 06:27:59,916 | INFO | wp_trajectory_generator | 	 - lipb
+REXROV -- 2026-10-08 06:27:59,916 | INFO | wp_trajectory_generator | 	 - dubins
+REXROV -- 2026-10-08 06:27:59,917 | INFO | wp_trajectory_generator | 	 - linear
+ 2026-10-08 06:27:59,917 | INFO | dp_controller_local_planner | Max. forward speed [m/s]=1.00
+ 2026-10-08 06:27:59,918 | INFO | dp_controller_local_planner | Idle circle radius [m] = 10.00
+ 2026-10-08 06:27:59,919 | INFO | dp_controller_local_planner | Inertial frame ID=world
+ 2026-10-08 06:28:00,025 | INFO | dp_controller_local_planner | Transform world_ned (NED) to world (ENU)=
+[[-3.74939946e-33  1.00000000e+00  1.22464680e-16]
+ [ 1.00000000e+00 -4.44089210e-16 -2.46519033e-32]
+ [ 0.00000000e+00  1.22464680e-16 -1.00000000e+00]]
+ 2026-10-08 06:28:00,025 | INFO | dp_controller_local_planner | Inertial frame ID=world
+ 2026-10-08 06:28:00,025 | INFO | dp_controller_local_planner | Max. forward speed = 1.0
+ 2026-10-08 06:28:00,026 | INFO | dp_controller_local_planner | No parameters for interpolation method <cubic> found
+ 2026-10-08 06:28:00,026 | INFO | dp_controller_local_planner | No parameters for interpolation method <lipb> found
+ 2026-10-08 06:28:00,027 | INFO | dp_controller_local_planner | No parameters for interpolation method <dubins> found
+ 2026-10-08 06:28:00,027 | INFO | dp_controller_local_planner | No parameters for interpolation method <linear> found
+ 2026-10-08 06:28:00,043 | INFO | vehicle | Transform world_ned (NED) to world (ENU)=
+[[-3.74939946e-33  1.00000000e+00  1.22464680e-16]
+ [ 1.00000000e+00 -4.44089210e-16 -2.46519033e-32]
+ [ 0.00000000e+00  1.22464680e-16 -1.00000000e+00]]
+ 2026-10-08 06:28:00,050 | INFO | dp_controller_base | DP controller successfully initialized
+ 2026-10-08 06:28:00,051 | INFO | dp_pid_controller_base | Initializing: PID controller
+ 2026-10-08 06:28:00,052 | INFO | dp_pid_controller_base | Kp=[11993.888, 11993.888, 11993.888, 19460.069, 19460.069, 19460.069]
+ 2026-10-08 06:28:00,054 | INFO | dp_pid_controller_base | Kd=[9077.459, 9077.459, 9077.459, 18880.925, 18880.925, 18880.925]
+ 2026-10-08 06:28:00,055 | INFO | dp_pid_controller_base | Ki=[321.417, 321.417, 321.417, 2096.951, 2096.951, 2096.951]
+ 2026-10-08 06:28:00,058 | INFO | dp_pid_controller_base | PID controller ready!
+ 2026-10-08 06:28:00,059 | INFO | dp_controller_local_planner | Start waypoint trajectory now!
+ 2026-10-08 06:28:00,060 | INFO | dp_controller_local_planner | STATION KEEPING MODE = ON
+REXROV -- 2026-10-08 06:28:00,060 | INFO | wp_trajectory_generator | Interpolation method set: lipb
+ 2026-10-08 06:28:00,081 | INFO | trajectory_generator | Initial rotation vector (quat)=[ 1.06325221e-04 -8.56682118e-03  8.47088320e-04  9.99962940e-01]
+ 2026-10-08 06:28:00,082 | INFO | trajectory_generator | Initial rotation vector (rpy)=(0.00019815794129880663, -0.01713402584961422, 0.0016925413602045941)
+ 2026-10-08 06:28:00,083 | INFO | path_generator | Setting initial rotation as=[ 1.06325221e-04 -8.56682118e-03  8.47088320e-04  9.99962940e-01]
+REXROV -- 2026-10-08 06:28:00,083 | INFO | wp_trajectory_generator | Setting new starting time, t=2.15 s
+ 2026-10-08 06:28:00,083 | ERROR | dp_controller_local_planner | Error generating trajectory message
+ 2026-10-08 06:28:00,083 | INFO | dp_controller_local_planner | STATION KEEPING MODE = OFF
+ 2026-10-08 06:28:00,084 | INFO | dp_controller_local_planner | AUTOMATIC MODE = ON
+ 2026-10-08 06:28:00,084 | INFO | dp_controller_local_planner | TRAJECTORY TRACKING = ON
+ 2026-10-08 06:28:00,084 | INFO | dp_controller_local_planner | ============================
+ 2026-10-08 06:28:00,084 | INFO | dp_controller_local_planner | IMPORT WAYPOINTS FROM FILE
+ 2026-10-08 06:28:00,084 | INFO | dp_controller_local_planner | ============================
+ 2026-10-08 06:28:00,084 | INFO | dp_controller_local_planner | Filename = /opt/dave_ws/src/bygd_rov/config/underwater_wreck/inspection_waypoints.yaml
+ 2026-10-08 06:28:00,084 | INFO | dp_controller_local_planner | Interpolator = lipb
+ 2026-10-08 06:28:00,084 | INFO | dp_controller_local_planner | # waypoints = 39
+ 2026-10-08 06:28:00,084 | INFO | dp_controller_local_planner | Starting time = 2.15
+ 2026-10-08 06:28:00,084 | INFO | dp_controller_local_planner | Inertial frame ID = world
+ 2026-10-08 06:28:00,084 | INFO | dp_controller_local_planner | ============================
+ 2026-10-08 06:28:00,085 | INFO | dp_controller_local_planner | Adding waypoints to approach the first position in the given waypoint set
+[ERROR] [1791440879.751436, 1.824000]: Negative start time, setting it to 0.0
+[INFO] [1791440879.747917, 0.000000]: Send a waypoint file, namespace=/rexrov/
+[INFO] [1791440879.752220, 1.824000]: Start time=0.00 s
+[INFO] [1791440880.085237, 2.156000]: Waypoints file successfully received, filename=/opt/dave_ws/src/bygd_rov/config/underwater_wreck/inspection_waypoints.yaml
+ 2026-10-08 06:28:00,381 | INFO | dp_controller_local_planner | Updating the trajectory information
+ 2026-10-08 06:28:00,643 | INFO | dp_controller_local_planner | Updating the trajectory information
+ 2026-10-08 06:28:01,144 | INFO | dp_controller_local_planner | Adding waypoints to approach the given waypoint trajectory
+REXROV -- 2026-10-08 06:28:01,152 | INFO | wp_trajectory_generator | Waypoint interpolator initialized! Start time: 2.15 s
+Starting trajectory and waypoint marker publisher
+exiting
+[INFO] [1791440879.767458, 1.840000]: base_link transform NED to ENU=
+[[ 1.0000000e+00  0.0000000e+00  0.0000000e+00]
+ [ 0.0000000e+00 -1.0000000e+00 -1.2246468e-16]
+ [ 0.0000000e+00  1.2246468e-16 -1.0000000e+00]]
+[INFO] [1791440879.769039, 1.840000]: ThrusterManager::update_rate=50
+[INFO] [1791440879.773809, 1.846000]: Thruster #0 - proportional - thrusters/0/input
+[INFO] [1791440879.774506, 1.846000]: Thruster model:
+[INFO] [1791440879.775418, 1.848000]: 	Gain=0.00031
+[INFO] [1791440879.776623, 1.848000]: Thruster #1 - proportional - thrusters/1/input
+[INFO] [1791440879.777503, 1.850000]: Thruster model:
+[INFO] [1791440879.778142, 1.850000]: 	Gain=0.00031
+[INFO] [1791440879.779406, 1.852000]: Thruster #2 - proportional - thrusters/2/input
+[INFO] [1791440879.780100, 1.852000]: Thruster model:
+[INFO] [1791440879.780740, 1.852000]: 	Gain=0.00031
+[INFO] [1791440879.781856, 1.854000]: Thruster #3 - proportional - thrusters/3/input
+[INFO] [1791440879.782428, 1.854000]: Thruster model:
+[INFO] [1791440879.783316, 1.856000]: 	Gain=0.00031
+[INFO] [1791440879.784638, 1.856000]: Thruster #4 - proportional - thrusters/4/input
+[INFO] [1791440879.785443, 1.858000]: Thruster model:
+[INFO] [1791440879.785986, 1.858000]: 	Gain=0.00031
+[INFO] [1791440879.787123, 1.858000]: Thruster #5 - proportional - thrusters/5/input
+[INFO] [1791440879.787749, 1.860000]: Thruster model:
+[INFO] [1791440879.788253, 1.860000]: 	Gain=0.00031
+[INFO] [1791440879.790012, 1.862000]: Thruster #6 - proportional - thrusters/6/input
+[INFO] [1791440879.790707, 1.862000]: Thruster model:
+[INFO] [1791440879.791442, 1.864000]: 	Gain=0.00031
+[INFO] [1791440879.792517, 1.864000]: Thruster #7 - proportional - thrusters/7/input
+[INFO] [1791440879.793204, 1.866000]: Thruster model:
+[INFO] [1791440879.793766, 1.866000]: 	Gain=0.00031
+[INFO] [1791440879.794322, 1.866000]: Thruster allocation matrix provided!
+[INFO] [1791440879.794833, 1.866000]: TAM=
+[INFO] [1791440879.795858, 1.868000]: [[ 0.15974269  0.15974269 -0.15974243 -0.15974243  0.70710686  0.70710686
+  -0.70710654 -0.70710654]
+ [-0.21361012  0.21361012 -0.21360977  0.21360977  0.7071067  -0.7071067
+   0.70710702 -0.70710702]
+ [ 0.9637702   0.9637702   0.96377032  0.96377032  0.          0.
+   0.          0.        ]
+ [ 0.43523203 -0.43523203  0.43523188 -0.43523188 -0.09121676  0.09121676
+  -0.09121681  0.09121681]
+ [ 0.9430935   0.9430935  -0.94309347 -0.94309347  0.09121679  0.09121679
+  -0.09121674 -0.09121674]
+ [ 0.13688862 -0.13688862 -0.1368884   0.1368884  -0.64879876  0.64879876
+   0.64879873 -0.64879873]]
+[INFO] [1791440879.797539, 1.870000]: TAM provided, skipping...
+[INFO] [1791440879.798146, 1.870000]: ThrusterManager: ready
+[INFO] [1791440879.798910, 1.870000]: Invalid output directory for the TAM matrix, dir=None
+[INFO] [1791440879.799598, 1.872000]: ThrusterManager: ready
+ThrusterAllocatorNode::Exception
+Leaving ThrusterAllocatorNode
+/opt/dave_ws/src/uuv_simulator/uuv_control/uuv_trajectory_control/src/uuv_waypoints/waypoint_set.py:239: YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the default Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
+  wps = yaml.load(wp_file)
+exiting
+... logging to /root/.ros/log/63bac746-c2e1-11f1-87e6-9645bc43f7ad/roslaunch-33f54017a203-7885.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/opt/dave_ws/src/bygd_rov/launch/underwater_wreck/inspection_trajectory.launch
+[1mstarted roslaunch server http://33f54017a203:46149/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /rexrov/rov_pid_controller/Kd: [9077.459, 9077.4...
+ * /rexrov/rov_pid_controller/Ki: [321.417, 321.417...
+ * /rexrov/rov_pid_controller/Kp: [11993.888, 11993...
+ * /rexrov/rov_pid_controller/inertial_frame_id: world
+ * /rexrov/rov_pid_controller/saturation: 1200
+ * /rexrov/send_waypoint_file/filename: /opt/dave_ws/src/...
+ * /rexrov/send_waypoint_file/interpolator: lipb
+ * /rexrov/send_waypoint_file/start_time: -1
+ * /rexrov/thruster_allocator/tam: [[0.1597426884844...
+ * /rexrov/thruster_manager/base_link: base_link
+ * /rexrov/thruster_manager/conversion_fcn: proportional
+ * /rexrov/thruster_manager/conversion_fcn_params/gain: 0.00031
+ * /rexrov/thruster_manager/max_thrust: 2000.0
+ * /rexrov/thruster_manager/tf_prefix: rexrov
+ * /rexrov/thruster_manager/thruster_frame_base: thruster_
+ * /rexrov/thruster_manager/thruster_topic_prefix: thrusters/
+ * /rexrov/thruster_manager/thruster_topic_suffix: /input
+ * /rexrov/thruster_manager/timeout: -1
+ * /rexrov/thruster_manager/update_rate: 50
+ * /rosdistro: noetic
+ * /rosversion: 1.17.4
+
+NODES
+  /rexrov/
+    rov_pid_controller (uuv_trajectory_control/rov_pid_controller.py)
+    send_waypoint_file (uuv_control_utils/send_waypoint_file.py)
+    thruster_allocator (uuv_thruster_manager/thruster_allocator.py)
+    trajectory_marker_publisher (uuv_control_utils/trajectory_marker_publisher.py)
+
+[1mROS_MASTER_URI=http://localhost:11329[0m
+]2;/opt/dave_ws/src/bygd_rov/launch/underwater_wreck/inspection_trajectory.launch http://localhost:11329
+[1mprocess[rexrov/thruster_allocator-1]: started with pid [7900][0m
+[1mprocess[rexrov/trajectory_marker_publisher-2]: started with pid [7901][0m
+[1mprocess[rexrov/rov_pid_controller-3]: started with pid [7902][0m
+[1mprocess[rexrov/send_waypoint_file-4]: started with pid [7903][0m
+[1m[rexrov/send_waypoint_file-4] process has finished cleanly
+log file: /root/.ros/log/63bac746-c2e1-11f1-87e6-9645bc43f7ad/rexrov-send_waypoint_file-4*.log[0m
+[rexrov/rov_pid_controller-3] killing on exit
+[rexrov/trajectory_marker_publisher-2] killing on exit
+[rexrov/thruster_allocator-1] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+[1mdone[0m

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- 可独立启动；只保存 RGB/声呐 PNG，按仿真时间戳匹配，默认每 5 仿真秒保存一组。 -->
+  <arg name="namespace" default="rexrov"/>
+  <arg name="sonar_image_topic" default="sonar_image" doc="sonar_image for color; sonar_image_gray for mono8; absolute topic also accepted"/>
+  <arg name="output_dir" default="$(find bygd_rov)/datasets"/>
+  <arg name="sample_period" default="5.0"/><arg name="sync_slop" default="0.03"/>
+  <arg name="max_pairs" default="0" doc="0 表示持续记录，正数为保存组数上限"/>
+  <node pkg="bygd_rov" type="record_pairs.py" name="record_sensor_pairs" output="screen">
+    <param name="namespace" value="$(arg namespace)"/><param name="output_dir" value="$(arg output_dir)"/>
+    <param name="sonar_image_topic" value="$(arg sonar_image_topic)"/>
+    <param name="package_dir" value="$(find bygd_rov)"/>
+    <param name="sample_period" value="$(arg sample_period)"/><param name="sync_slop" value="$(arg sync_slop)"/>
+    <param name="max_pairs" value="$(arg max_pairs)"/>
+  </node>
+</launch>

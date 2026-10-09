@@ -1,0 +1,71 @@
+{
+  "obj_reimport_bounds_m": {
+    "min": [
+      -0.3406069874763489,
+      -0.25005000829696655,
+      -0.2241079956293106
+    ],
+    "max": [
+      0.3406069874763489,
+      0.25005000829696655,
+      0.2241079956293106
+    ],
+    "size": [
+      0.6812139749526978,
+      0.5001000165939331,
+      0.4482159912586212
+    ]
+  },
+  "original_to_reduced": {
+    "samples": 5015,
+    "mean_m": 2.170367298960873e-05,
+    "p95_m": 8.288883691420779e-05,
+    "max_m": 0.00026631628861650825
+  },
+  "reduced_to_original": {
+    "samples": 5078,
+    "mean_m": 1.6300204735721865e-05,
+    "p95_m": 6.397470133379102e-05,
+    "max_m": 0.0001608090242370963
+  },
+  "blend_objects": [
+    {
+      "name": "R45_ROV_visual",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "center_m": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "materials": 39,
+  "missing_textures": [],
+  "fbx_reimport_triangles": 498933,
+  "fbx_reimport_center_m": [
+    0.0,
+    2.9802322387695312e-08,
+    0.0
+  ],
+  "obj_triangle_faces": 498933,
+  "ros_container_checks": {
+    "container": "dave_noetic_raster",
+    "assimp_obj_import": "passed",
+    "check_urdf": "passed"
+  }
+}

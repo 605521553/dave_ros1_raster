@@ -1,0 +1,5 @@
+
+# Generated capture data and Python caches
+datasets/
+__pycache__/
+*.pyc

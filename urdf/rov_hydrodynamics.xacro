@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!-- Fossen coefficients adapted without changes from UUV Simulator rexrov.gazebo.xacro.
+     Copyright (c) 2016 The UUV Simulator Authors, Apache License 2.0.
+     http://www.apache.org/licenses/LICENSE-2.0 -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="bygd_rov_hydro_model" params="namespace">
+    <xacro:property name="buoyancy" value="${xacro.load_yaml('$(find bygd_rov)/config/rov_buoyancy.yaml')}"/>
+    <link name="${namespace}/base_link">
+      <neutrally_buoyant>${1 if buoyancy['neutrally_buoyant'] else 0}</neutrally_buoyant>
+      <!-- No fixed volume: SetNeutrallyBuoyant derives it from the actual link mass. -->
+      <box>
+        <width>${buoyancy['box']['width']}</width>
+        <length>${buoyancy['box']['length']}</length>
+        <height>${buoyancy['box']['height']}</height>
+      </box>
+      <center_of_buoyancy>${' '.join(map(str, buoyancy['center_of_buoyancy']))}</center_of_buoyancy>
+            <hydrodynamic_model>
+                <type>fossen</type>
+                <!-- Added mass: see p.28 in Berg2012 -->
+                <added_mass>
+                     779.79 -6.8773 -103.32  8.5426 -165.54 -7.8033
+                    -6.8773    1222   51.29  409.44 -5.8488  62.726
+                    -103.32   51.29  3659.9  6.1112 -386.42  10.774
+                     8.5426  409.44  6.1112   534.9 -10.027  21.019
+                    -165.54 -5.8488 -386.42 -10.027  842.69 -1.1162
+                    -7.8033  62.726  10.775  21.019 -1.1162  224.32
+                </added_mass>
+                <!-- Linear damping: see p.31 in Berg2012 -->
+                <linear_damping>
+                    -74.82 -69.48 -728.4 -268.8 -309.77 -105
+                </linear_damping>
+                <!-- Non-linear damping: see p.30 in Berg2012 -->
+                <quadratic_damping>
+                    -748.22 -992.53 -1821.01 -672 -774.44 -523.27
+                </quadratic_damping>
+            </hydrodynamic_model>
+    </link>
+  </xacro:macro>
+</robot>

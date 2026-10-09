@@ -202,3 +202,16 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+# Install scene resources together so model://bygd_rov/... also works after install.
+install(DIRECTORY launch worlds meshes config urdf
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+  # Keep source FBX and validation screenshots out of the runtime install.
+  PATTERN "source" EXCLUDE
+  PATTERN "preview" EXCLUDE
+)
+
+# ROS runtime script only; Blender tooling stays source-only.
+catkin_install_python(PROGRAMS scripts/record_pairs.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)

@@ -1,0 +1,67 @@
+{
+  "material_mapping": {
+    "rock": "stone",
+    "shell": "stone",
+    "growth": "wood",
+    "rust": "metal",
+    "steel": "metal",
+    "sand": "soil"
+  },
+  "category_face_assignments": {
+    "seabed": {
+      "soil": 48600
+    },
+    "sediment": {
+      "soil": 7560
+    },
+    "marine_growth": {
+      "stone": 28000
+    },
+    "floating_objects": {
+      "wood": 924
+    },
+    "rocks": {
+      "stone": 75060
+    },
+    "building_ruins": {
+      "stone": 884,
+      "metal": 432
+    },
+    "debris": {
+      "metal": 1800
+    },
+    "shipwreck": {
+      "metal": 10780
+    },
+    "pipes": {
+      "metal": 5376
+    }
+  },
+  "source_faces": 179416,
+  "outputs": {
+    "stone": {
+      "objects": 1,
+      "vertices": 62320,
+      "faces": 103944,
+      "geometry_preserved": true
+    },
+    "wood": {
+      "objects": 1,
+      "vertices": 616,
+      "faces": 924,
+      "geometry_preserved": true
+    },
+    "metal": {
+      "objects": 1,
+      "vertices": 10248,
+      "faces": 18388,
+      "geometry_preserved": true
+    },
+    "soil": {
+      "objects": 1,
+      "vertices": 28851,
+      "faces": 56160,
+      "geometry_preserved": true
+    }
+  }
+}

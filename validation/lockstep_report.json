@@ -1,0 +1,32 @@
+{
+  "warmup_wall_seconds": 2,
+  "note": "Discard startup cached frame before estimating steady-state rate.",
+  "rgb": {
+    "messages": 54,
+    "wall_seconds": 12.018048313999316,
+    "sim_span_seconds": 2.6500000000000057,
+    "sim_hz": 19.999999999999957,
+    "wall_hz": 4.4932420463893195
+  },
+  "sonar": {
+    "messages": 53,
+    "wall_seconds": 12.018048313999316,
+    "sim_span_seconds": 2.5999999999999943,
+    "sim_hz": 20.000000000000043,
+    "wall_hz": 4.410033860345073
+  },
+  "motion_first": [
+    221.002,
+    3.2701501439414655,
+    -7.016649109011569,
+    -5.9997626616265345
+  ],
+  "motion_last": [
+    224.302,
+    2.3388132790264073,
+    -7.242794034461277,
+    -6.000625720846708
+  ],
+  "displacement_m": 0.9584000355424039,
+  "max_tracking_error_m": 0.026808381712219862
+}

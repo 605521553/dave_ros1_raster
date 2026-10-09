@@ -1,0 +1,26 @@
+# RGB-D 直接输出，不做水下颜色/雾化后处理。角度单位 rad，距离单位 m。
+rgbd:
+  rate: 20
+  width: 640
+  height: 480
+  horizontal_fov: 1.05
+  near: 0.1
+  far: 20.0
+sonar:
+  rate: 20
+  width: 512
+  # 透视光栅 VFOV = 2*atan(height/width*tan(HFOV/2))，25 行约为 11.96 度。
+  # 不能将 ROS 2 gpu-rays 的 300 条垂直射线直接当作这里的图像高度。
+  height: 25
+  horizontal_fov: 2.26894
+  vertical_beam_degrees: 12.0
+  near: 0.1
+  far: 20.0
+  max_distance: 10.0
+  frequency: 900000.0
+  bandwidth: 29900.0
+  sound_speed: 1500.0
+  source_level: 220.0
+  gain: 0.02
+  # 垂直行数减少后不再使用旧例子的 10，避免只剩极少有效采样。
+  ray_skips: 1

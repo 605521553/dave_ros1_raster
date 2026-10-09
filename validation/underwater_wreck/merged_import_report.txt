@@ -1,0 +1,9 @@
+/opt/dave_ws/src/bygd_rov/meshes/underwater_wreck_scene/optimized/building_ruins.obj submeshes=2 vertices=3948 indices=3948 min=6.99824 3.07166 -0.725344 max=23.9587 19.5004 5.40199
+/opt/dave_ws/src/bygd_rov/meshes/underwater_wreck_scene/optimized/debris.obj submeshes=1 vertices=5400 indices=5400 min=-19.1849 -16.0291 -0.49137 max=19.9939 19.7088 0.741423
+/opt/dave_ws/src/bygd_rov/meshes/underwater_wreck_scene/optimized/floating_objects.obj submeshes=1 vertices=2772 indices=2772 min=-21.4296 -17.7721 1.64803 max=21.6299 19.7892 9.01273
+/opt/dave_ws/src/bygd_rov/meshes/underwater_wreck_scene/optimized/marine_growth.obj submeshes=1 vertices=84000 indices=84000 min=-15.0598 -11.786 0.359137 max=-5.77089 16.3547 6.90409
+/opt/dave_ws/src/bygd_rov/meshes/underwater_wreck_scene/optimized/pipes.obj submeshes=2 vertices=16128 indices=16128 min=-6.63472 -19.0058 -0.150517 max=18.8748 11.3599 0.82249
+/opt/dave_ws/src/bygd_rov/meshes/underwater_wreck_scene/optimized/rocks.obj submeshes=1 vertices=225180 indices=225180 min=-29.2277 -21.9161 -0.732288 max=29.4493 21.8553 1.25935
+/opt/dave_ws/src/bygd_rov/meshes/underwater_wreck_scene/optimized/seabed.obj submeshes=1 vertices=145800 indices=145800 min=-30 -22.5 -0.351369 max=30 22.5 0.511704
+/opt/dave_ws/src/bygd_rov/meshes/underwater_wreck_scene/optimized/sediment.obj submeshes=1 vertices=22680 indices=22680 min=-18.648 -16.3637 -0.252821 max=16.4978 18.6109 0.568222
+/opt/dave_ws/src/bygd_rov/meshes/underwater_wreck_scene/optimized/shipwreck.obj submeshes=2 vertices=32340 indices=32340 min=-15.432 -12.1144 0.397715 max=-5.70569 16.3535 6.93002

@@ -1,0 +1,40 @@
+{
+  "waypoints": 529,
+  "speed_m_s": 0.5,
+  "world_z_range": [
+    -8.590001515662946,
+    -7.734458966875962
+  ],
+  "start": [
+    -12.0,
+    -12.0,
+    -7.99978243293304
+  ],
+  "start_yaw": 1.5809322399010877,
+  "path_length_m": 354.39436571434635,
+  "duration_s": 708.7998022488614,
+  "triangle_aabbs": 504284,
+  "samples": 24001,
+  "min_center_triangle_aabb_distance_m": 1.1593950166210543,
+  "enclosing_rov_radius_m": 0.45,
+  "max_sample_gap_m": 0.014791126962154878,
+  "conservative_surface_clearance_m": 0.7019994531399769,
+  "closest_material": "sand",
+  "closest_position": [
+    8.086707593404505,
+    6.430415761987341,
+    -7.9376654581377935
+  ],
+  "route_sha256": "4fd3a7bc13c9f94bd77e67e450f2e11178d668ebf3d8d807b4bd54d82d575037",
+  "limitations": "Static full cubic path against triangle AABBs of all seven loaded material meshes, including particles. No dynamic PID/current test or arbitrary-position approach validation. Sphere encloses visible model and body/gripper collisions; virtual actuator spheres excluded.",
+  "interpolator": "cubic",
+  "end": [
+    12.0,
+    -12.0,
+    -7.9986885930569835
+  ],
+  "max_reference_yaw_rate_deg_s": 28.339293256579605,
+  "max_waypoint_turn_deg": 13.837880884951026,
+  "reversals_over_170_deg": 0,
+  "max_actual_reference_yaw_rate_deg_s": 27.1788491446063
+}

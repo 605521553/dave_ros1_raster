@@ -1,0 +1,9 @@
+cable.obj: vertices=2184, faces=4344, materials=['cable'], min=[-10.015942574, -9.026512146, -0.10011027], max=[8.403190613, 13.177931786, 0.31748569]
+glass.obj: vertices=3034, faces=5920, materials=['glass'], min=[-7.152974606, -5.737185001, 0.121800847], max=[7.146154404, 21.14525795, 0.816031992]
+polymer.obj: vertices=76652, faces=83320, materials=['polymer'], min=[-7.352635384, -5.729639053, -0.093753174], max=[7.347139359, 21.346242905, 0.891290665]
+rock.obj: vertices=114030, faces=217200, materials=['rock'], min=[-17.048347473, -13.072533607, -0.418358594], max=[16.901887894, 26.913070679, 0.661231399]
+rubber.obj: vertices=16724, faces=33004, materials=['rubber'], min=[-7.292302608, -5.746562004, -0.092434831], max=[7.409425735, 21.291296005, 0.824463785]
+sand.obj: vertices=36461, faces=70760, materials=['sand'], min=[-17.0, -13.0, -0.134704903], max=[17.0, 27.0, 8.898220062]
+steel.obj: vertices=45710, faces=89736, materials=['steel'], min=[-7.356554508, -5.746147633, -0.091931693], max=[7.376729012, 21.350818634, 1.390290737]
+PASS: OBJ indices, finite coordinates, MTL references, XML syntax, world mesh paths, seven model/fiducial/CSV names and unchanged sensor/model settings.
+Runtime Gazebo rendering, Xacro expansion and sonar output have not been verified.

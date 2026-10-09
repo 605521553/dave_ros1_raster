@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Run against the OBN world from the documented route start.
+       Does not start another Gazebo world or spawn another vehicle. -->
+  <arg name="uuv_name" default="rexrov"/>
+  <arg name="filename" default="$(find bygd_rov)/config/obn/inspection_waypoints.yaml"/>
+  <arg name="start_time" default="-1"/>
+  <arg name="interpolator" default="cubic"/>
+  <!-- Leave false when a PID/controller is already running. -->
+  <arg name="start_controller" default="false"/>
+  <arg name="record" default="false"/>
+  <arg name="output_dir" default="$(find bygd_rov)/datasets/obn"/>
+  <arg name="object_hits_topic" default="object_hits"/>
+  <arg name="object_wait_timeout" default="2.0"/>
+  <arg name="sample_period" default="5.0"/>
+  <arg name="sonar_image_topic" default="sonar_image_gray"/>
+  <include if="$(arg start_controller)" file="$(find uuv_trajectory_control)/launch/rov_pid_controller.launch">
+    <arg name="uuv_name" value="$(arg uuv_name)"/>
+    <arg name="model_name" value="rexrov"/>
+  </include>
+  <include file="$(find uuv_control_utils)/launch/send_waypoints_file.launch">
+    <arg name="uuv_name" value="$(arg uuv_name)"/>
+    <arg name="filename" value="$(arg filename)"/>
+    <arg name="start_time" value="$(arg start_time)"/>
+    <arg name="interpolator" value="$(arg interpolator)"/>
+  </include>
+  <include if="$(arg record)" file="$(find bygd_sonar_labels)/launch/record_pairs.launch">
+    <arg name="namespace" value="$(arg uuv_name)"/>
+    <arg name="output_dir" value="$(arg output_dir)"/>
+    <arg name="object_hits_topic" value="$(arg object_hits_topic)"/>
+    <arg name="object_wait_timeout" value="$(arg object_wait_timeout)"/>
+    <arg name="sample_period" value="$(arg sample_period)"/>
+    <arg name="sonar_image_topic" value="$(arg sonar_image_topic)"/>
+  </include>
+</launch>
+
+
+

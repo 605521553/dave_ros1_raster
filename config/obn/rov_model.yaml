@@ -1,0 +1,17 @@
+# Lightweight ROV mesh and shared RGB-D / sonar mounting configuration.
+# Consumed by urdf/obn/bygd_rov.xacro and urdf/obn/sensors.xacro.
+# Mesh coordinates are metres, X forward, Y left, Z up.
+# CAD origin retained: NOT a measured center of mass or geometric center.
+visual_mesh: package://bygd_rov/meshes/ROV/rov_lowpoly.obj
+visual_scale: [1.0, 1.0, 1.0]
+visual_xyz: [0.0, 0.0, 0.0]
+visual_rpy: [0.0, 0.0, 0.0]
+
+sensor_mount:
+  # Both sensor origins share this body-relative pose.
+  # 250 mm forward, centered laterally, 100 mm above the CAD origin.
+  xyz: [0.25, 0.0, 0.10]
+  # Shared RGB-D / sonar pitch: +X viewing direction tilted down by 10 degrees.
+  rpy: [0.0, 0.17453292519943295, 0.0]
+  # ROS camera optical frame: X right, Y down, Z forward.
+  optical_rpy: [-1.5707963267948966, 0.0, -1.5707963267948966]

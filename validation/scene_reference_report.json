@@ -1,0 +1,14 @@
+[
+  {
+    "scene": "offshore",
+    "passed": true,
+    "output": "Unable to register with master node [http://127.0.0.1:12431]: master may not be running yet. Will keep trying.\n{\"models\": [\"sea_surface\", \"environment\", \"rexrov\"], \"config\": \"/opt/dave_ws/src/bygd_rov/config/offshore\"}\nRGB image: 640x480\nSonar image: 512x399\n",
+    "log": "/tmp/scene_references_offshore.log"
+  },
+  {
+    "scene": "underwater_wreck",
+    "passed": true,
+    "output": "Unable to register with master node [http://127.0.0.1:12432]: master may not be running yet. Will keep trying.\n{\"models\": [\"sea_surface\", \"wreck_stone\", \"wreck_wood\", \"wreck_metal\", \"wreck_soil\", \"rexrov\"], \"config\": \"/opt/dave_ws/src/bygd_rov/config/underwater_wreck\"}\nRGB image: 640x480\nSonar image: 512x399\n",
+    "log": "/tmp/scene_references_underwater_wreck.log"
+  }
+]

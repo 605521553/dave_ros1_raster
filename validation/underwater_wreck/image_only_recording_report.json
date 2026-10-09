@@ -1,0 +1,12 @@
+{
+  "written": 3,
+  "matching_tolerance_ms": 10,
+  "period_s": 5.0,
+  "npy_files": 0,
+  "bag_files": 0,
+  "subscriptions": [
+    "/rexrov/rgbd/rgb/image_raw",
+    "/rexrov/sonar/sonar_image_gray"
+  ],
+  "error": null
+}

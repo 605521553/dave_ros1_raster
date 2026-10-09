@@ -1,0 +1,41 @@
+{
+  "obj_reimport_bounds_m": {
+    "min": [
+      -0.2512930929660797,
+      -0.2058199644088745,
+      -0.17833586037158966
+    ],
+    "max": [
+      0.2512930929660797,
+      0.2058199644088745,
+      0.17833586037158966
+    ],
+    "size": [
+      0.5025861859321594,
+      0.411639928817749,
+      0.3566717207431793
+    ]
+  },
+  "original_to_reduced": {
+    "samples": 5001,
+    "mean_m": 0.00040973796493256714,
+    "p95_m": 0.001482346560806036,
+    "max_m": 0.018399953842163086
+  },
+  "reduced_to_original": {
+    "samples": 5068,
+    "mean_m": 6.53523113740099e-05,
+    "p95_m": 0.00038224473246373236,
+    "max_m": 0.0036720354110002518
+  },
+  "fbx_reimport_triangles": 108074,
+  "obj_triangle_faces": 108074,
+  "materials": 6,
+  "centering_note": "Recentered after geometric deviation validation; prior distances are in the previous coordinate frame.",
+  "scene_objects": 1,
+  "object_location": [
+    0.0,
+    0.0,
+    0.0
+  ]
+}

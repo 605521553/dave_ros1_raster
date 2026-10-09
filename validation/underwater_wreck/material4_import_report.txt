@@ -1,0 +1,4 @@
+/opt/dave_ws/src/bygd_rov/meshes/underwater_wreck_scene/materials4/metal.obj submeshes=1 vertices=55164 indices=55164 min=-19.1849 -19.0058 -0.49137 max=21.2105 19.7088 6.93002
+/opt/dave_ws/src/bygd_rov/meshes/underwater_wreck_scene/materials4/soil.obj submeshes=1 vertices=168480 indices=168480 min=-30 -22.5 -0.351369 max=30 22.5 0.568222
+/opt/dave_ws/src/bygd_rov/meshes/underwater_wreck_scene/materials4/stone.obj submeshes=1 vertices=311832 indices=311832 min=-29.2277 -21.9161 -0.732288 max=29.4493 21.8553 6.90409
+/opt/dave_ws/src/bygd_rov/meshes/underwater_wreck_scene/materials4/wood.obj submeshes=1 vertices=2772 indices=2772 min=-21.4296 -17.7721 1.64803 max=21.6299 19.7892 9.01273

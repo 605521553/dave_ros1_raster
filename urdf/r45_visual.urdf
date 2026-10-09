@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<robot name="r45_visual">
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><mesh filename="package://bygd_rov/meshes/ROV_R45/rov_lowpoly.obj" scale="1 1 1"/></geometry>
+    </visual>
+  </link>
+</robot>

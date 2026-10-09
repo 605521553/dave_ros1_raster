@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="vehicle_box_collisions" params="items">
+    <xacro:if value="${len(items) > 0}">
+      <xacro:property name="item" value="${items[0]}"/>
+      <collision name="${item['name']}">
+        <origin xyz="${' '.join(map(str,item['xyz']))}" rpy="${' '.join(map(str,item['rpy']))}"/>
+        <geometry><box size="${' '.join(map(str,item['size']))}"/></geometry>
+      </collision>
+      <xacro:vehicle_box_collisions items="${items[1:]}"/>
+    </xacro:if>
+  </xacro:macro>
+</robot>

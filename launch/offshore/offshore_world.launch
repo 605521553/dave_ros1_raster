@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <!-- 场景入口：替代原 ocean_waves.launch。只启动环境，不生成机器人或启动控制器。 -->
+  <arg name="gui" default="true" doc="是否打开 Gazebo 界面"/>
+  <arg name="paused" default="false" doc="是否暂停物理仿真"/>
+  <!-- 锁步模式等待渲染传感器，优先保证仿真时间采样率，可能降低墙钟实时率。 -->
+  <arg name="lockstep" default="false"/>
+  <arg name="verbose" default="false" doc="输出 Gazebo 调试日志"/>
+  <arg name="world_name" default="$(find bygd_rov)/worlds/offshore/offshore.world"
+       doc="修改点：更换场景时指定自己的 world 文件"/>
+
+  <!-- model://包名/资源路径：加入两个包的父目录，同时保留现有搜索路径。
+       路径通过 rospack 解析，不写死 WSL 或容器目录；兼容 devel/install 工作空间。 -->
+  <env name="GAZEBO_MODEL_PATH"
+       value="$(find bygd_rov)/..:$(find uuv_gazebo_worlds)/..:$(optenv GAZEBO_MODEL_PATH)"/>
+  <env name="GAZEBO_RESOURCE_PATH"
+       value="$(find uuv_gazebo_worlds):$(optenv GAZEBO_RESOURCE_PATH)"/>
+
+  <!-- 复用 Gazebo ROS 启动逻辑。不要再 include ocean_waves.launch，否则会启动第二个世界。 -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world_name)"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="verbose" value="$(arg verbose)"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="extra_gazebo_args" value="$(eval '--lockstep' if arg('lockstep') else '')"/>
+  </include>
+
+  <!-- 保留控制器所需的 world / world_ned 变换；不加载可视 NED 模型。
+       不复用原 publish_world_models 节点，避免显示不存在的旧海床/边界标记。 -->
+  <include file="$(find uuv_assistants)/launch/publish_world_ned_frame.launch"/>
+</launch>
